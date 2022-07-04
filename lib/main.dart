@@ -6,6 +6,9 @@ void main() {
 
 const String appTitle = 'Surf Flutter Course';
 
+int bldCounter1 = 0;
+int bldCounter2 = 0;
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -16,54 +19,50 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Surf Flutter Course'),
+      //home: const MyHomePage(title: 'Surf Flutter Course'),
+      //home: const MyFirstWidget(),
+      home: const MySecondWidget(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  final String title;
-
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class MyFirstWidget extends StatelessWidget {
+  const MyFirstWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+    bldCounter1++;
+    // ignore: avoid_print
+    print('stless: $bldCounter1');
+
+    // ignore: avoid_unnecessary_containers
+    return Container(
+      child: const Center(
+        child: Text('Hello!'),
       ),
     );
   }
+}
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+class MySecondWidget extends StatefulWidget {
+  const MySecondWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MySecondWidget> createState() => _MySecondWidgetState();
+}
+
+class _MySecondWidgetState extends State<MySecondWidget> {
+  @override
+  Widget build(BuildContext context) {
+    bldCounter2++;
+    // ignore: avoid_print
+    print('stfull: $bldCounter2');
+
+    // ignore: avoid_unnecessary_containers
+    return Container(
+      child: const Center(
+        child: Text('Hello!'),
+      ),
+    );
   }
 }
