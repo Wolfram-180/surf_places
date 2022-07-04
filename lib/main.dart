@@ -4,15 +4,15 @@ void main() {
   runApp(const MyApp());
 }
 
+const String appTitle = 'Surf Flutter Course';
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  final String app_title = 'Surf Flutter Course';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: app_title,
+      title: appTitle,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
+
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -32,12 +32,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,5 +59,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
   }
 }
