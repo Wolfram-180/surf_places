@@ -11,11 +11,12 @@ class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Sight List'),
+        title: const Text('Sightseeing List'),
       ),
       body: const Center(
-        child: Text('Sight List'),
+        child: Text('Hello!'),
       ),
     );
   }
