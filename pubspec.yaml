@@ -26,6 +26,7 @@ flutter:
 
   assets:
     - lib/
+    - lib/ui/res/img/
 
   fonts:
     - family: Roboto
