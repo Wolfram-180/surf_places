@@ -1,3 +1,3 @@
 class AppStrings {
-  static const appTitle = 'Surf Flutter course';
+  static const appTitle = 'Список интересных мест';
 }
