@@ -18,7 +18,7 @@ class _SightListScreenState extends State<SightListScreen> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         toolbarHeight: 150,
-        title: Text(
+        title: const Text(
           maxLines: 2,
           app_strings.AppStrings.appTitle,
           textAlign: TextAlign.left,
