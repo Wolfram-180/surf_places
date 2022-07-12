@@ -10,7 +10,7 @@ class SightCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(8.0),
-      child: Container(
+      child: const ColoredBox(
         color: Colors.blue,
       ),
     );
