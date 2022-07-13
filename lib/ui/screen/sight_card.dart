@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:surf_places/domain/sight.dart';
+import 'package:surf_places/ui/res/app_assets.dart' as app_assets;
+import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
 
 class SightCard extends StatelessWidget {
   final Sight sight;
@@ -8,16 +10,70 @@ class SightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: Stack(
+    return Container(
+      alignment: Alignment.center,
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+      child: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            height: 100,
-            color: Colors.grey,
+          Stack(
+            children: [
+              const SizedBox(
+                height: 96.0,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12.0),
+                    topRight: Radius.circular(12.0),
+                  ),
+                  child: Image(
+                    image: AssetImage(app_assets.AppAssets.city),
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(16, 16, 0, 0),
+                child: Text(
+                  sight.type,
+                  style: app_typography.AppTypography.fs14w700Roboto,
+                ),
+              ),
+              Container(
+                alignment: Alignment.topRight,
+                padding: const EdgeInsets.fromLTRB(0, 18, 18, 0),
+                child: const Icon(
+                  Icons.favorite_border,
+                  color: Colors.white,
+                  size: 28.0,
+                ),
+              ),
+            ],
           ),
-          Text(sight.name),
+          Container(
+            height: 92.0,
+            decoration: const BoxDecoration(
+              color: Color(0xffF5F5F5),
+            ),
+            alignment: Alignment.topLeft,
+            padding: const EdgeInsets.fromLTRB(16, 16, 0, 0),
+            child: SizedBox(
+              width: 296,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    sight.name,
+                    style: app_typography.AppTypography.fs16BoldRoboto,
+                  ),
+                  Text(
+                    sight.details,
+                    style: app_typography.AppTypography.fs14w400Roboto,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
