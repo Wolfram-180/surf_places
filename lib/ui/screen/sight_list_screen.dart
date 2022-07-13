@@ -47,7 +47,9 @@ class _SightListScreenState extends State<SightListScreen> {
         elevation: 0,
       ),
       body: const Center(
-        child: Image(image: AssetImage(app_assets.AppAssets.flower)),
+        child: Image(
+          image: AssetImage(app_assets.AppAssets.flower),
+        ),
       ),
     );
   }
