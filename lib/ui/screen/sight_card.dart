@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:surf_places/domain/sight.dart';
-import 'package:surf_places/ui/res/app_assets.dart' as app_assets;
 import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
 
 class SightCard extends StatelessWidget {
@@ -18,15 +17,15 @@ class SightCard extends StatelessWidget {
         children: [
           Stack(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 96.0,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(12.0),
                     topRight: Radius.circular(12.0),
                   ),
                   child: Image(
-                    image: AssetImage(app_assets.AppAssets.city),
+                    image: AssetImage(sight.img),
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
