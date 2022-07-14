@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:surf_places/mocks.dart' as mocks;
-//import 'package:surf_places/ui/res/app_assets.dart' as app_assets;
 import 'package:surf_places/ui/res/app_colors.dart' as app_colors;
 import 'package:surf_places/ui/res/app_strings.dart' as app_strings;
 import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
