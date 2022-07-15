@@ -1,11 +1,11 @@
 class Sight {
-  String name;
-  double lat;
-  double lon;
-  String url;
-  String details;
-  String type;
-  String img;
+  final String name;
+  final double lat;
+  final double lon;
+  final String url;
+  final String details;
+  final String type;
+  final String img;
 
   Sight({
     required this.name,
