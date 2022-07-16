@@ -72,7 +72,7 @@ final List<Sight> mocks = [
     lon: 58.79,
     url:
         'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/shaverma.png',
-    details: 'Самая вкусная шаурма центра РФ',
+    details: 'Самая вкусная шаурма Эрефии',
     type: 'Питание',
   ),
 ];
