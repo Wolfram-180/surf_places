@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+//import 'package:functional_widget/builder.dart';
+//import 'package:functional_widget/function_to_widget_class.dart';
+//import 'package:flutter/foundation.dart';
+import 'package:functional_widget_annotation/functional_widget_annotation.dart';
+//import 'package:flutter/widgets.dart';
 import 'package:surf_places/mocks.dart' as mocks;
 import 'package:surf_places/ui/res/app_colors.dart' as app_colors;
 import 'package:surf_places/ui/res/app_strings.dart' as app_strings;
 import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
 import 'package:surf_places/ui/screen/sight_card.dart';
 //import 'package:surf_places/ui/screen/sight_details_screen.dart';
-import 'package:functional_widget/builder.dart';
-//import 'package:functional_widget/function_to_widget_class.dart
 
 class SightListScreen extends StatefulWidget {
   const SightListScreen({Key? key}) : super(key: key);
@@ -45,7 +48,7 @@ class _SightListScreenState extends State<SightListScreen> {
     );
   }
 
-  //@swidget
+  @swidget
   Widget sightCardsList(List<int> indxs) {
     final List<Widget> sightCardsList = indxs.map((index) {
       return SightCard(sight: mocks.mocks[index]);

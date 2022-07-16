@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
 import 'package:surf_places/domain/sight.dart';
+import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
 
 class SightDetailsScreen extends StatelessWidget {
   final Sight sight;
