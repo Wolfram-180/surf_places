@@ -40,7 +40,6 @@ class _SightListScreenState extends State<SightListScreen> {
             SightCard(sight: mocks.mocks[0]),
             SightCard(sight: mocks.mocks[1]),
             SightCard(sight: mocks.mocks[2]),
-            const SightDetailsScreen(),
           ],
         ),
       ),
