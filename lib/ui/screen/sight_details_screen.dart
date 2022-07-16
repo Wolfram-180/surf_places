@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
 
-class SightDetails extends StatelessWidget {
-  const SightDetails({Key? key}) : super(key: key);
+class SightDetailsScreen extends StatelessWidget {
+  const SightDetailsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
