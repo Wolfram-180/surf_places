@@ -24,8 +24,8 @@ class SightCard extends StatelessWidget {
                     topLeft: Radius.circular(12.0),
                     topRight: Radius.circular(12.0),
                   ),
-                  child: Image(
-                    image: AssetImage(sight.img),
+                  child: Image.network(
+                    sight.url,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),

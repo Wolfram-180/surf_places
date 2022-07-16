@@ -5,7 +5,6 @@ class Sight {
   final String url;
   final String details;
   final String type;
-  final String img;
 
   Sight({
     required this.name,
@@ -14,6 +13,5 @@ class Sight {
     required this.url,
     required this.details,
     required this.type,
-    required this.img,
   });
 }
