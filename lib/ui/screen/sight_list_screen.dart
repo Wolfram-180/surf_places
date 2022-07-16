@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:functional_widget/builder.dart';
-//import 'package:functional_widget/function_to_widget_class.dart';
-//import 'package:flutter/foundation.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
-//import 'package:flutter/widgets.dart';
 import 'package:surf_places/mocks.dart' as mocks;
 import 'package:surf_places/ui/res/app_colors.dart' as app_colors;
 import 'package:surf_places/ui/res/app_strings.dart' as app_strings;
