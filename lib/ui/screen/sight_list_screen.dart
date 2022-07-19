@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:surf_places/mocks.dart' as mocks;
 import 'package:surf_places/ui/res/app_colors.dart' as app_colors;
 import 'package:surf_places/ui/res/app_strings.dart' as app_strings;
@@ -14,6 +15,9 @@ class SightListScreen extends StatefulWidget {
 }
 
 class _SightListScreenState extends State<SightListScreen> {
+  final _sightsIndxs =
+      List<int>.generate(10, (index) => index, growable: false);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,14 +39,19 @@ class _SightListScreenState extends State<SightListScreen> {
         elevation: 0,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SightCard(sight: mocks.mocks[0]),
-            SightCard(sight: mocks.mocks[1]),
-            SightCard(sight: mocks.mocks[2]),
-          ],
-        ),
+        child: sightCardsList(_sightsIndxs),
       ),
+    );
+  }
+
+  @swidget
+  Widget sightCardsList(List<int> indxs) {
+    final List<Widget> sightCardsList = indxs.map((index) {
+      return SightCard(sight: mocks.mocks[index]);
+    }).toList();
+
+    return Column(
+      children: sightCardsList,
     );
   }
 }

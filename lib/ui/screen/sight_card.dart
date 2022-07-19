@@ -31,7 +31,7 @@ class SightCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
+              Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 0, 0),
                 child: Text(
                   sight.type,
