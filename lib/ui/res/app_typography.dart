@@ -49,6 +49,19 @@ class AppTypography {
     color: Colors.black,
   );
 
+  static const btnText16Wh = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Roboto',
+    color: Colors.white,
+  );
+
+  static const btnText16Bl = TextStyle(
+    fontSize: 16,
+    fontFamily: 'Roboto',
+    color: Colors.grey,
+  );
+
   static const fs28w800RobotoDrkGrey = TextStyle(
     fontSize: 28,
     fontWeight: FontWeight.w800,

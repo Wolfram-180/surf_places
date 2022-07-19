@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
 import 'package:surf_places/domain/sight.dart';
+import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
 
 class SightDetailsScreen extends StatelessWidget {
   final Sight sight;
@@ -11,99 +11,35 @@ class SightDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sight Details'),
+        title: Text(sight.name),
       ),
       body: SingleChildScrollView(
         child: Container(
           alignment: Alignment.center,
           width: double.infinity,
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Stack(children: [
-                Container(
-                  height: 360.0,
-                  color: Colors.red,
+              const GalleryAndBackBtn(),
+              SightName(sight: sight),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                child: Row(
+                  children: [
+                    SightType(sight: sight),
+                    const SightWorkTime(),
+                  ],
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(16, 36, 0, 0),
-                  child: const Icon(Icons.arrow_back),
-                  height: 32.0,
-                  width: 32.0,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  ),
-                ),
-              ]),
-              Stack(
-                children: [
-                  Container(
-                    height: 360.0,
-                    color: Colors.white,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(16, 36, 0, 0),
-                    child: const Text(
-                      'Пряности и радости',
-                      style: app_typography.AppTypography.fs28w800RobotoDrkGrey,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(16, 75, 0, 0),
-                    child: const Text(
-                      'ресторан',
-                      style: app_typography.AppTypography.fs14BoldRobotoDrkGrey,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(100, 75, 0, 0),
-                    child: const Text(
-                      'закрыто до 09:00',
-                      style: app_typography.AppTypography.fs14w400Roboto,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(16, 115, 16, 0),
-                    child: const Text(
-                      'Пряный вкус радостной жизни вместе с шеф-поваром Изо Дзандзава, благодаря которой у гостей ресторана есть возможность выбирать из двух направлений: европейского и восточного',
-                      style: app_typography.AppTypography.fs15w400RobotoDrkGrey,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(16, 210, 0, 0),
-                    height: 48.0,
-                    width: 355.0,
-                    decoration: const BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(16, 280, 0, 0),
-                    height: 1.0,
-                    width: 355.0,
-                    decoration: const BoxDecoration(
-                      color: Color(0xff7C7E92),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(16, 290, 0, 0),
-                    height: 40.0,
-                    width: 164.0,
-                    decoration: const BoxDecoration(
-                      color: Color(0xff7C7E92),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(205, 290, 0, 0),
-                    height: 40.0,
-                    width: 164.0,
-                    decoration: const BoxDecoration(
-                      color: Color(0xff7C7E92),
-                    ),
-                  ),
+              ),
+              SightDetails(sight: sight),
+              const SizedBox(height: 30),
+              const BtnRoute(),
+              const SizedBox(height: 10),
+              const Divider(),
+              Row(
+                children: const [
+                  BtnSchedule(),
+                  BtnFavorite(),
                 ],
               ),
             ],
@@ -111,5 +47,209 @@ class SightDetailsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class BtnFavorite extends StatelessWidget {
+  const BtnFavorite({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox.fromSize(
+      size: const Size(164, 40),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: Material(
+          color: Colors.white,
+          child: InkWell(
+            splashColor: Colors.yellow,
+            onTap: () {},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(Icons.favorite_border, color: Colors.black),
+                Text(
+                  '  В Избранное',
+                  style: app_typography.AppTypography.btnText16Bl,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BtnSchedule extends StatelessWidget {
+  const BtnSchedule({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox.fromSize(
+      size: const Size(164, 40),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: Material(
+          color: Colors.white,
+          child: InkWell(
+            splashColor: Colors.yellow,
+            onTap: () {},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(Icons.calendar_month, color: Colors.grey),
+                Text(
+                  '  Запланировать',
+                  style: app_typography.AppTypography.btnText16Bl,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BtnRoute extends StatelessWidget {
+  const BtnRoute({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox.fromSize(
+      size: const Size(328, 48),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: Material(
+          color: const Color(0xff4CAF50),
+          child: InkWell(
+            splashColor: Colors.yellow,
+            onTap: () {},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(Icons.route, color: Colors.white),
+                Text(
+                  'ПОСТРОИТЬ МАРШРУТ',
+                  style: app_typography.AppTypography.btnText16Wh,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SightDetails extends StatelessWidget {
+  final Sight sight;
+
+  const SightDetails({
+    Key? key,
+    required this.sight,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      margin: const EdgeInsets.fromLTRB(15, 20, 0, 0),
+      child: Text(
+        sight.details,
+        style: app_typography.AppTypography.fs15w400RobotoDrkGrey,
+      ),
+    );
+  }
+}
+
+class SightWorkTime extends StatelessWidget {
+  const SightWorkTime({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+      child: const Text(
+        'закрыто до 09:00',
+        style: app_typography.AppTypography.fs14w400Roboto,
+      ),
+    );
+  }
+}
+
+class SightType extends StatelessWidget {
+  final Sight sight;
+
+  const SightType({
+    Key? key,
+    required this.sight,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 0, 0, 0),
+      child: Text(
+        sight.type,
+        style: app_typography.AppTypography.fs14BoldRobotoDrkGrey,
+      ),
+    );
+  }
+}
+
+class SightName extends StatelessWidget {
+  final Sight sight;
+
+  const SightName({
+    Key? key,
+    required this.sight,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+      alignment: Alignment.centerLeft,
+      child: Text(
+        sight.name,
+        style: app_typography.AppTypography.fs28w800RobotoDrkGrey,
+      ),
+    );
+  }
+}
+
+class GalleryAndBackBtn extends StatelessWidget {
+  const GalleryAndBackBtn({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: [
+      Container(
+        height: 360.0,
+        color: Colors.red,
+      ),
+      Container(
+        margin: const EdgeInsets.fromLTRB(16, 36, 0, 0),
+        child: const Icon(Icons.arrow_back),
+        height: 32.0,
+        width: 32.0,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        ),
+      ),
+    ]);
   }
 }
