@@ -28,6 +28,23 @@ class SightCard extends StatelessWidget {
                     sight.url,
                     width: double.infinity,
                     fit: BoxFit.cover,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+
+                      return Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? (loadingProgress.cumulativeBytesLoaded /
+                                  loadingProgress.expectedTotalBytes!)
+                              : null,
+                        ),
+                      );
+
+                      //const Center(child: Text('Loading...'));
+                      // You can use LinearProgressIndicator or CircularProgressIndicator instead
+                    },
+                    errorBuilder: (context, error, stackTrace) =>
+                        const Text('Some errors occurred!'),
                   ),
                 ),
               ),

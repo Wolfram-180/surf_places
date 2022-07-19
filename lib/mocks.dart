@@ -6,7 +6,7 @@ final List<Sight> mocks = [
     lat: 53.29,
     lon: 44.58,
     url:
-        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/beach.png',
+        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/beach.png?raw=true',
     details: 'Центральный пляж областного значения в деревне Верхняя Кышка',
     type: 'Пляж',
   ),
@@ -15,7 +15,7 @@ final List<Sight> mocks = [
     lat: 63.79,
     lon: 54.78,
     url:
-        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/mushrms.png',
+        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/mushrms.png?raw=true',
     details: 'Собирайте грибы сколько хотите',
     type: 'Отдых в лесу',
   ),
@@ -24,7 +24,7 @@ final List<Sight> mocks = [
     lat: 62.97,
     lon: 53.79,
     url:
-        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/city.png',
+        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/city.png?raw=true',
     details: 'Полоса препятствий для экстремалов',
     type: 'Активный отдых',
   ),
@@ -33,7 +33,7 @@ final List<Sight> mocks = [
     lat: 62.97,
     lon: 53.79,
     url:
-        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/attrac.png',
+        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/attrac.png?raw=true',
     details: 'Покатульки на аттракционах',
     type: 'Активный отдых',
   ),
@@ -42,7 +42,7 @@ final List<Sight> mocks = [
     lat: 62.97,
     lon: 53.79,
     url:
-        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/castle.png',
+        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/castle.png?raw=true',
     details:
         'Найдете выход из лабиринта, преодолеете препятствия и попадете в захватывающие ловушки!',
     type: 'Активный отдых',
@@ -52,7 +52,7 @@ final List<Sight> mocks = [
     lat: 62.97,
     lon: 93.79,
     url:
-        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/coffee.png',
+        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/coffee.png?raw=true',
     details: 'Кофе, пончики и прочее если на хавчик пробило ))',
     type: 'Питание',
   ),
@@ -61,7 +61,7 @@ final List<Sight> mocks = [
     lat: 62.97,
     lon: 73.79,
     url:
-        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/zoopark.png',
+        'https://github.com/Wolfram-180/apps_resources/blob/main/surf_places/zoopark.png?raw=true',
     details: 'Зверушки и другое домашнее животное',
     type: 'Экскурсии',
   ),
