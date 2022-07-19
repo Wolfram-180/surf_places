@@ -5,7 +5,6 @@ import 'package:surf_places/ui/res/app_colors.dart' as app_colors;
 import 'package:surf_places/ui/res/app_strings.dart' as app_strings;
 import 'package:surf_places/ui/res/app_typography.dart' as app_typography;
 import 'package:surf_places/ui/screen/sight_card.dart';
-//import 'package:surf_places/ui/screen/sight_details_screen.dart';
 
 class SightListScreen extends StatefulWidget {
   const SightListScreen({Key? key}) : super(key: key);
