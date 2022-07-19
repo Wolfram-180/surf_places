@@ -16,7 +16,7 @@ class SightListScreen extends StatefulWidget {
 
 class _SightListScreenState extends State<SightListScreen> {
   final _sightsIndxs =
-      List<int>.generate(10, (index) => index, growable: false);
+      List<int>.generate(mocks.mocks.length, (index) => index, growable: false);
 
   @override
   Widget build(BuildContext context) {

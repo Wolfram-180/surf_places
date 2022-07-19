@@ -16,9 +16,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppStrings.appTitle,
-      home:
-          //SightDetailsScreen(sight: mocks.mocks[0]),
-          SightListScreen(),
+      home: SightDetailsScreen(sight: mocks.mocks[0]),
+      //SightListScreen(),
     );
   }
 }
