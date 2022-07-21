@@ -20,7 +20,7 @@ class SightDetailsScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
           child: Column(
             children: [
-              const GalleryAndBackBtn(),
+              GalleryAndBackBtn(sight: sight),
               SightName(sight: sight),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -242,6 +242,7 @@ class GalleryAndBackBtn extends StatelessWidget {
       Image.network(
         sight.url,
         width: double.infinity,
+        height: 360,
         fit: BoxFit.cover,
         loadingBuilder: (context, child, loadingProgress) {
           if (loadingProgress == null) return child;
