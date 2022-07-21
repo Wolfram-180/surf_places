@@ -20,7 +20,7 @@ class SightDetailsScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
           child: Column(
             children: [
-              const GalleryAndBackBtn(),
+              GalleryAndBackBtn(sight: sight),
               SightName(sight: sight),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -229,16 +229,36 @@ class SightName extends StatelessWidget {
 }
 
 class GalleryAndBackBtn extends StatelessWidget {
+  final Sight sight;
+
   const GalleryAndBackBtn({
     Key? key,
+    required this.sight,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Container(
-        height: 360.0,
-        color: Colors.red,
+      Image.network(
+        sight.url,
+        width: double.infinity,
+        height: 360,
+        fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+
+          // 4-10 load indicator
+          return Center(
+            child: CircularProgressIndicator(
+              value: loadingProgress.expectedTotalBytes != null
+                  ? (loadingProgress.cumulativeBytesLoaded /
+                      loadingProgress.expectedTotalBytes!)
+                  : null,
+            ),
+          );
+        },
+        errorBuilder: (context, error, stackTrace) =>
+            const Text('Произошла ошибка загрузки изображения'),
       ),
       Container(
         margin: const EdgeInsets.fromLTRB(16, 36, 0, 0),
