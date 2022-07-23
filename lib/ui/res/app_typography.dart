@@ -23,11 +23,18 @@ class AppTypography {
     color: Color(0xff3B3E5B),
   );
 
-  static const fs14w700Roboto = TextStyle(
+  static const fs14w700RobotoWhite = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w700,
     fontFamily: 'Roboto',
     color: Colors.white,
+  );
+
+  static const fs14w700RobotoBlack = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Roboto',
+    color: Colors.black,
   );
 
   static const fs15w400RobotoDrkGrey = TextStyle(

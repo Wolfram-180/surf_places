@@ -61,14 +61,17 @@ class SightsAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         backgroundColor: app_colors.AppColors.appBckgrColor,
         elevation: 0,
-        flexibleSpace: RichText(
-          text: const TextSpan(
-            style: app_typography.AppTypography.fs40Bold,
-            children: [
-              TextSpan(
-                text: app_strings.AppStrings.appTitle,
-              ),
-            ],
+        flexibleSpace: Padding(
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          child: RichText(
+            text: const TextSpan(
+              style: app_typography.AppTypography.fs40Bold,
+              children: [
+                TextSpan(
+                  text: app_strings.AppStrings.appTitle,
+                ),
+              ],
+            ),
           ),
         ),
       ),

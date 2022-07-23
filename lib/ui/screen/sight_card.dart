@@ -52,7 +52,7 @@ class SightCard extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(16, 16, 0, 0),
                   child: Text(
                     sight.type,
-                    style: app_typography.AppTypography.fs14w700Roboto,
+                    style: app_typography.AppTypography.fs14w700RobotoBlack,
                   ),
                 ),
                 Container(
