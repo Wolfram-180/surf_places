@@ -32,61 +32,89 @@ class _VisitingScreenState extends State<VisitingScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Visiting Screen'),
+        title: const Text('Visiting Screen'),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(48.0),
+          child: CustomTabIndicator(
+            tabController: tabController,
+          ),
+        ),
       ),
       body: TabBarView(
         controller: tabController,
         children: [
-          Center(child: Text('Tab 0 content')),
-          Center(child: Text('Tab 1 content')),
-          Center(child: Text('Tab 2 content')),
+          const Center(child: Text('Tab 0 content')),
+          const Center(child: Text('Tab 1 content')),
+          const Center(child: Text('Tab 2 content')),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.comment), label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.delete), label: ''),
-      ]),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.red,
+        unselectedItemColor: Colors.grey,
+        currentIndex: tabController.index,
+        onTap: (currentIndex) {
+          tabController.animateTo(currentIndex);
+        },
+        items: [
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          const BottomNavigationBarItem(
+            icon: const Icon(Icons.comment),
+            label: 'Comment',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.delete),
+            label: 'Delete',
+          ),
+        ],
+      ),
     );
   }
 }
 
-class tempToDelete_NewWidget extends StatelessWidget {
-  const tempToDelete_NewWidget({
+class CustomTabIndicator extends StatelessWidget {
+  TabController tabController;
+
+  CustomTabIndicator({
     Key? key,
+    required this.tabController,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      // initialIndex: 0,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Latest News'),
-          bottom: const TabBar(
-            tabs: <Widget>[
-              Tab(
-                icon: Icon(
-                  Icons.category,
-                ),
-                text: 'Categories',
-              ),
-              Tab(
-                icon: Icon(
-                  Icons.star,
-                ),
-                text: 'Favorites',
-              ),
-            ],
-          ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        for (int i = 0; i < tabController.length; i++)
+          CustomTabWdg(i: i, tabCntrlrIndex: tabController.index),
+      ],
+    );
+  }
+}
+
+class CustomTabWdg extends StatelessWidget {
+  final int i;
+  final int tabCntrlrIndex;
+
+  const CustomTabWdg({
+    Key? key,
+    required this.i,
+    required this.tabCntrlrIndex,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: tabCntrlrIndex == i ? Colors.red : Colors.grey,
         ),
-        body: const TabBarView(
-          children: [
-            //CategoriesScreen(),
-            //FavoritesBody(),
-          ],
-        ),
+        width: 15,
+        height: 15,
       ),
     );
   }
