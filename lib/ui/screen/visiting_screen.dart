@@ -43,9 +43,9 @@ class _VisitingScreenState extends State<VisitingScreen>
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: Text('')),
-        BottomNavigationBarItem(icon: Icon(Icons.comment), label: Text('')),
-        BottomNavigationBarItem(icon: Icon(Icons.delete), label: Text('')),
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.comment), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.delete), label: ''),
       ]),
     );
   }
