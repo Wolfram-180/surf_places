@@ -3,6 +3,7 @@ import 'package:surf_places/mocks.dart' as mocks;
 import 'package:surf_places/ui/res/app_strings.dart';
 import 'package:surf_places/ui/screen/sight_details_screen.dart';
 import 'package:surf_places/ui/screen/sight_list_screen.dart';
+import 'package:surf_places/ui/screen/visiting_screen.dart';
 
 void main() {
   runApp(const App());
@@ -16,7 +17,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppStrings.appTitle,
-      home: SightListScreen(),
+      home: VisitingScreen(),
+      //home: SightListScreen(),
       //home: SightDetailsScreen(sight: mocks.mocks[1]),
     );
   }

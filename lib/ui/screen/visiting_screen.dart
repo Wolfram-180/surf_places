@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'categories_screen.dart';
-import 'favorites_body.dart';
+//import 'categories_screen.dart';
+//import 'favorites_body.dart';
 
 class VisitingScreen extends StatefulWidget {
   const VisitingScreen({Key? key}) : super(key: key);
@@ -9,7 +9,53 @@ class VisitingScreen extends StatefulWidget {
   _VisitingScreenState createState() => _VisitingScreenState();
 }
 
-class _VisitingScreenState extends State<VisitingScreen> {
+class _VisitingScreenState extends State<VisitingScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 3, vsync: this);
+    tabController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    tabController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Visiting Screen'),
+      ),
+      body: TabBarView(
+        controller: tabController,
+        children: [
+          Center(child: Text('Tab 0 content')),
+          Center(child: Text('Tab 1 content')),
+          Center(child: Text('Tab 2 content')),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('')),
+        BottomNavigationBarItem(icon: Icon(Icons.comment)),
+        BottomNavigationBarItem(icon: Icon(Icons.delete)),
+      ]),
+    );
+  }
+}
+
+class tempToDelete_NewWidget extends StatelessWidget {
+  const tempToDelete_NewWidget({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -36,9 +82,9 @@ class _VisitingScreenState extends State<VisitingScreen> {
           ),
         ),
         body: const TabBarView(
-          children: <Widget>[
-            CategoriesScreen(),
-            FavoritesBody(),
+          children: [
+            //CategoriesScreen(),
+            //FavoritesBody(),
           ],
         ),
       ),
