@@ -1,72 +1,88 @@
 import 'package:flutter/material.dart';
+import 'package:surf_places/ui/res/app_strings.dart';
 //import 'categories_screen.dart';
 //import 'favorites_body.dart';
 
-class VisitingScreen extends StatefulWidget {
-  const VisitingScreen({Key? key}) : super(key: key);
+class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
-  _VisitingScreenState createState() => _VisitingScreenState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _VisitingScreenState extends State<VisitingScreen>
+class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
-  late TabController tabController;
+  late TabController tabControllerMain;
+  //late TabController tabControllerFavorite;
 
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 3, vsync: this);
-    tabController.addListener(() {
+    tabControllerMain = TabController(length: 4, vsync: this);
+    tabControllerMain.addListener(() {
       setState(() {});
     });
+    /*
+    tabControllerFavorite = TabController(length: 2, vsync: this);
+    tabControllerFavorite.addListener(() {
+      setState(() {});
+    });
+    */
   }
 
   @override
   void dispose() {
     super.dispose();
-    tabController.dispose();
+    tabControllerMain.dispose();
+    //tabControllerFavorite.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Visiting Screen'),
+        title: const Text('Nice Places'),
+        /*
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(48.0),
           child: CustomTabIndicator(
-            tabController: tabController,
+            tabController: tabControllerMain,
           ),
         ),
+        */
       ),
       body: TabBarView(
-        controller: tabController,
+        controller: tabControllerMain,
         children: [
           const Center(child: Text('Tab 0 content')),
           const Center(child: Text('Tab 1 content')),
           const Center(child: Text('Tab 2 content')),
+          const Center(child: Text('Tab 3 content')),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.grey,
-        currentIndex: tabController.index,
+        currentIndex: tabControllerMain.index,
         onTap: (currentIndex) {
-          tabController.animateTo(currentIndex);
+          tabControllerMain.animateTo(currentIndex);
         },
         items: [
           const BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.list),
+            label: '',
           ),
           const BottomNavigationBarItem(
-            icon: const Icon(Icons.comment),
-            label: 'Comment',
+            icon: Icon(Icons.map),
+            label: '',
           ),
           const BottomNavigationBarItem(
-            icon: Icon(Icons.delete),
-            label: 'Delete',
+            icon: Icon(Icons.favorite),
+            label: '',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: '',
           ),
         ],
       ),
